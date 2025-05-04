@@ -1,0 +1,11 @@
+import 'package:flutter/material.dart';
+
+extension DarkMode on BuildContext {
+  bool get isDark {
+    if (Theme.of(this).brightness == Brightness.dark) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
