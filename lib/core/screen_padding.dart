@@ -12,7 +12,7 @@ class ScreenPadding extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: padding ?? EdgeInsets.symmetric(horizontal: 10.w),
-      child: Center(child: child),
+      child: child,
     );
   }
 }

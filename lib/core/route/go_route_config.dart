@@ -5,6 +5,7 @@ import 'package:zenith/core/route/routes.dart';
 import 'package:zenith/core/transition/transition_config.dart';
 import 'package:zenith/core/transition/transitions.dart';
 import 'package:zenith/features/home/home.dart';
+import 'package:zenith/features/session/session_screen.dart';
 import 'package:zenith/features/settings/settings.dart';
 
 class GoRouterConfig {
@@ -86,6 +87,7 @@ class GoRouterConfig {
         _goRoute(path: Routes.homeRoute, child: HomeScreen()),
         _goRoute(path: Routes.settings, child: SettingsScreen()),
         _goRoute(path: Routes.replyToChatScreen, child: AiScheduleScreen()),
+        _goRoute(path: Routes.sessionScreen, child: SessionScreen()),
       ],
     );
   }

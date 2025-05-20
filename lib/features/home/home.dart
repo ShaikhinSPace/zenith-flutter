@@ -21,56 +21,36 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Headline2Text(text: 'Zenith'),
-        actions: [
-          InkWell(
-            onTapDown: (dx) {
-              getIt<NavigationService>().goTo(
-                Routes.settings,
-                arguments: TransitionConfig(
-                  tapPosition: dx.globalPosition,
-                  transitionType: TransitionType.circularReveal,
+    return SafeArea(
+      child: Scaffold(
+        // appBar:
+        body: ScreenPadding(
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: AppBar(
+                  title: const Headline2Text(text: 'Zenith'),
+                  actions: [
+                    InkWell(
+                      onTapDown: (dx) {
+                        getIt<NavigationService>().goTo(
+                          Routes.settings,
+                          arguments: TransitionConfig(
+                            tapPosition: dx.globalPosition,
+                            transitionType: TransitionType.circularReveal,
+                          ),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SvgPicture.asset(AssetSource.chatNavBarIcon),
+                      ),
+                    ),
+                  ],
                 ),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset(AssetSource.chatNavBarIcon),
-            ),
-          ),
-        ],
-      ),
-      body: ScreenPadding(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            spacing: 10.w,
-            children: [
-              TappableContainer(
-                child: Center(child: CaptionText(text: 'text')),
-                onTap: () {
-                  getIt<NavigationService>().goTo(Routes.replyToChatScreen);
-                },
               ),
-              TappableContainer(
-                child: NormalTextWidget(text: 'text'),
-                onTap: () {
-                  getIt<NavigationService>().goTo(Routes.replyToChatScreen);
-                },
-              ),
-              TappableContainer(
-                child: NormalTextWidget(text: 'text'),
-                onTap: () {
-                  getIt<NavigationService>().goTo(Routes.replyToChatScreen);
-                },
-              ),
-              TappableContainer(
-                child: NormalTextWidget(text: 'text'),
-                onTap: () {
-                  getIt<NavigationService>().goTo(Routes.replyToChatScreen);
-                },
+              SliverToBoxAdapter(
+                child: TappableContainer(child: Text('Session'), onTap: () {}),
               ),
             ],
           ),
